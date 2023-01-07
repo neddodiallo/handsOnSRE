@@ -1,0 +1,17 @@
+version: "3.0"
+services:
+  application:
+    build:
+      context: .
+      dockerfile: dockerfile
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:latest
+    environment:
+      - PASSWORD=test
+      - USERNAME=test
+      - DATABASE=test
+  jenkins:
+    image: jenkins:latest
+    
